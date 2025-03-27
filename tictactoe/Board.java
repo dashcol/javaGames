@@ -5,17 +5,21 @@ public class Board {
  private int boardSize=3;
  private char player1Symbol,player2Symbol;
  private int count;
- private static final char EMPTY=' ';  
+private static final char EMPTY = ' ';  
  public static final int PLAYER1WINS=1;
  public static final int PLAYER2WINS=2;
  public static final int DRAW=3;
  public static final int INCOMPLETE=4;
- public static final int INVALID=4;
+ public static final int INVALID=5;
 
 
 
 
  public Board(char player1Symbol,char player2Symbol){
+   this.board = new char[boardSize][boardSize];  
+    this.player1Symbol = player1Symbol;
+    this.player2Symbol = player2Symbol;
+
 for(int i=0;i<boardSize;i++){
    for(int j=0;j<boardSize;j++){
     board[i][j]=EMPTY;
@@ -26,19 +30,22 @@ this.player2Symbol=player2Symbol;
  }
 
  public void print(){
-   System.out.println("--------------------");
+System.out.println("_".repeat(30));
    for(int i=0;i<boardSize;i++){
       for(int j=0;j<boardSize;j++){
+        
          System.out.print("|"+board[i][j]+"|");
       }
       System.out.println();
    } 
    System.out.println();
-   System.out.println("--------------------");
+  System.out.println("_".repeat(30));
  }
 
 public int move(int x,int y,char symbol){
-   if(( x<0 || x>boardSize || y<0 ||y>boardSize|| board[x][y]!=EMPTY   )){
+ 
+  
+   if(( x<0 || x>=boardSize || y<0 ||y>=boardSize|| board[x][y]!=EMPTY)){
       return INVALID;
    }
 //move

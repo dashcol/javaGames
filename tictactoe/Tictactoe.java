@@ -76,6 +76,7 @@ if(status==board.PLAYER1WINS){
 }else{
     System.out.println(":( its a DRAW"); 
 }
+sc.close();
 }
 
 
@@ -85,8 +86,9 @@ System.out.print("Enter Player" +num+ "Name :");
 String player1Name=sc.nextLine();
 System.out.print("Enter Player"+num+ "Symbol :");
 char p1Symbol=sc.next().charAt(0);
-sc.close();
+
 Player p=new Player(player1Name,p1Symbol);
   return p;
 }
+
 }
